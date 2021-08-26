@@ -8,12 +8,8 @@ const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const app = express();
 
-const corsOptions = {
-    origin: "*",
-}
-
-app.use(cors(corsOptions));
-
+app.use(cors());
+app.options('*', cors())
 app.use(express.json());
 
 app.use("/movies", moviesRouter);
