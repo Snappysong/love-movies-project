@@ -8,13 +8,8 @@ const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 const app = express();
 
-const corsOptions = {
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-    "preflightContinue": true,
-    "optionsSuccessStatus": 204
-}
-app.options('*', cors());
+
+app.use(cors());
 
 app.use(express.json());
 
