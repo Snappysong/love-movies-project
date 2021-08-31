@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(cors({ origin: "http://ilovemovies-client.vercel.app" }));
+// app.use(cors({ origin: "https://ilovemovies-client.vercel.app" }));
 // app.options('*', cors())
 
 app.use(express.json());
