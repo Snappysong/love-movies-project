@@ -9,10 +9,10 @@ const notFound = require("./errors/notFound");
 const app = express();
 
 const corsOptions = {
-    origin: "https://ilovemovies-client.vercel.app/"
+    origin: "https://ilovemovies-client.vercel.app"
 }
 
-app.use(cors({ origin: "http://ilovemovies-client.vercel.app/" }));
+app.use(cors({ origin: "http://ilovemovies-client.vercel.app" }));
 // app.options('*', cors())
 
 app.use(express.json());
