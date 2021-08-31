@@ -22,7 +22,9 @@ const corsOptions = {
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({
+    credentials: true,
+}));
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
