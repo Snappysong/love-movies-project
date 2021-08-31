@@ -18,15 +18,11 @@ app.use(express.json());
 // });
 
 const corsOptions = {
-    origin: "*",
+    origin: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Content-Range', 'X-Content-Range'],
-    credentials: true,
-    preflightContinue: true,
 }
-app.use(cors());
-app.options('*', cors(corsOptions))
+app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions))
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
