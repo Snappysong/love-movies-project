@@ -11,17 +11,22 @@ const app = express();
 app.use(express.json());
 
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 const corsOptions = {
-    origin: "https://ilovemovies-client.vercel.app"
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Content-Range', 'X-Content-Range'],
+    credentials: true,
+    preflightContinue: true,
 }
-// app.use(cors());
-// app.options('*', cors())
+app.use(cors());
+app.options('*', cors(corsOptions))
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
