@@ -6,7 +6,9 @@ const reviewsRouter = require("./reviews/reviews.router");
 const theatersRouter = require("./theaters/theaters.router");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
+
 const app = express();
+app.use(express.json());
 
 const corsOptions = {
     origin: "https://ilovemovies-client.vercel.app"
@@ -18,13 +20,8 @@ const corsOptions = {
 //     next();
 // });
 
-// app.options('*', cors())
-
-app.use(express.json());
-
-app.use(cors({
-    credentials: true,
-}));
+app.use(cors());
+app.options('*', cors())
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
