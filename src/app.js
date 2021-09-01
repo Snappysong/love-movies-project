@@ -17,15 +17,19 @@ app.use(express.json());
 //     next();
 // });
 
-app.use(cors({
-    origin: '*',
-}))
+// app.use(cors({
+//     origin: '*',
+// }))
+
 // const corsOptions = {
 //     origin: true,
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 // }
 // app.use(cors(corsOptions));
 // app.options('*', cors(corsOptions))
+
+app.use(cors());
+app.options("*", cors());
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
