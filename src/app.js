@@ -28,8 +28,8 @@ app.use(express.json());
 // app.use(cors(corsOptions));
 // app.options('*', cors(corsOptions))
 
-// app.use(cors());
-// app.options("*", cors());
+app.use(cors());
+app.options("*", cors());
 
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
